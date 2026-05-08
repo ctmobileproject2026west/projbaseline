@@ -15,7 +15,7 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     try {
-      const res = await this.foodcatalog.testCallAPI();
+      const res = await this.foodcatalog.getTopLevelCatalog();
       this.sample = res; //no need to .result
       console.log(res);
     } catch (error) {

@@ -1,11 +1,24 @@
 {
-  posts: [
-    { id: "1", title: "a title for quick test", views: 100 },
-    { id: "2", title: "another title", views: 200 },
+  categories: [
+    { id: "1", name: "Appetizer", subcategories: [
+      { id: "101", name: "Salad" },
+      { id: "101", name: "Soup" }
+    ] },
+    { id: "2", name: "Main Course", subcategories: [
+      { id: "201", name: "Pasta" },
+      { id: "202", name: "Steak" },
+      { id: "203", name: "Grilled" }
+    ] },
+    { id: "3", name: "Dessert", subcategories: [
+      { id: "301", name: "Cake", fooditems: [
+        { id: "1", name: "Matcha Latte", price: "10.0", detaileddesc: "Lorem Ipsum..." },
+        { id: "2", name: "New York Cheese Cake", price: "15.0", detaileddesc: "Lorem Ipsum foobar..." },
+      ] }
+    ] },
   ],
-  comments: [
-    { id: "1", text: "a comment about post 1", postId: "1" },
-    { id: "2", text: "another comment about post 1", postId: "1" },
+  fooditems: [
+    { id: "1", name: "Matcha Latte", price: "10.0", detaileddesc: "Lorem Ipsum..." },
+    { id: "2", name: "New York Cheese Cake", price: "15.0", detaileddesc: "Lorem Ipsum foobar..." },
   ],
   profile: {
     name: "typicode",
