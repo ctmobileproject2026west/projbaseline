@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-fooddetail',
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   standalone: false //TODO
 })
 export class FooddetailPage implements OnInit {
+  public getDetail: any;
+  public fooditemDetails: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getDetail = this.route.params.subscribe(params => {
+      this.fooditemDetails = JSON.parse(params['FoodItem']);
+    })
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Foodcatalog } from '../api/foodcatalog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomePage implements OnInit {
   public sample: any = {};
   public selectedCat = "1";
 
-  constructor(private foodcatalog: Foodcatalog) {}
+  constructor(private foodcatalog: Foodcatalog, private router: Router) {}
 
   async ngOnInit() {
     try {
@@ -28,6 +29,11 @@ export class HomePage implements OnInit {
     this.selectedCat = cat.id;
   }
 
+  public goToFoodDetails(fooditem: any) {
+    this.router.navigate(['/fooddetail', { FoodItem: JSON.stringify(fooditem) }]);
+  }
+
+  //Utility
   public filterCat(catid: string) {
     const i = parseInt(catid, 10);
     return this.sample[i-1];

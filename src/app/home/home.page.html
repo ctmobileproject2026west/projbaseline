@@ -20,6 +20,11 @@
         <ion-item-divider>
           <ion-label>{{ subcat.name }}</ion-label>
         </ion-item-divider>
+        <div *ngFor="let fooditem of subcat.fooditems">
+          <ion-item>
+            <ion-label (click)="goToFoodDetails(fooditem)">{{ fooditem.name }}</ion-label>
+          </ion-item>
+        </div>
         <p style="display: none;">{{ subcat | json }}</p>
     </ion-item-group>
   </div>
