@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Foodcatalog } from '../api/foodcatalog';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
   standalone: false,
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor() {}
+  public sample: any = {};
 
+  constructor(private foodcatalog: Foodcatalog) {}
+
+  async ngOnInit() {
+    try {
+      const res = await this.foodcatalog.testCallAPI();
+      this.sample = res; //no need to .result
+      console.log(res);
+    } catch (error) {
+      console.log("req error", error);
+    }
+  }
 }
