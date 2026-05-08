@@ -2,7 +2,7 @@
   categories: [
     { id: "1", name: "Appetizer", subcategories: [
       { id: "101", name: "Salad" },
-      { id: "101", name: "Soup" }
+      { id: "102", name: "Soup" }
     ] },
     { id: "2", name: "Main Course", subcategories: [
       { id: "201", name: "Pasta" },
@@ -13,12 +13,16 @@
       { id: "301", name: "Cake", fooditems: [
         { id: "1", name: "Matcha Latte", price: "10.0", detaileddesc: "Lorem Ipsum..." },
         { id: "2", name: "New York Cheese Cake", price: "15.0", detaileddesc: "Lorem Ipsum foobar..." },
+      ] },
+      { id: "302", name: "Ice Cream", fooditems: [
+        { id: "3", name: "Chocolate Ice cream", price: "8.0", detaileddesc: "Lorem Ipsum another..." },
       ] }
     ] },
   ],
   fooditems: [
     { id: "1", name: "Matcha Latte", price: "10.0", detaileddesc: "Lorem Ipsum..." },
     { id: "2", name: "New York Cheese Cake", price: "15.0", detaileddesc: "Lorem Ipsum foobar..." },
+    { id: "3", name: "Chocolate Ice cream", price: "8.0", detaileddesc: "Lorem Ipsum another..." }
   ],
   profile: {
     name: "typicode",

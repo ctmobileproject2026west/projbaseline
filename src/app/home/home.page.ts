@@ -10,6 +10,7 @@ import { Foodcatalog } from '../api/foodcatalog';
 export class HomePage implements OnInit {
 
   public sample: any = {};
+  public selectedCat = "1";
 
   constructor(private foodcatalog: Foodcatalog) {}
 
@@ -21,5 +22,14 @@ export class HomePage implements OnInit {
     } catch (error) {
       console.log("req error", error);
     }
+  }
+
+  public selectCat(cat: any) {
+    this.selectedCat = cat.id;
+  }
+
+  public filterCat(catid: string) {
+    const i = parseInt(catid, 10);
+    return this.sample[i-1];
   }
 }
