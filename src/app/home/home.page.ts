@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Foodcatalog } from '../api/foodcatalog';
 import { Router } from '@angular/router';
+import { LoadingController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -13,15 +14,33 @@ export class HomePage implements OnInit {
   public sample: any = []; //top level type matters
   public selectedCat = "3";
 
-  constructor(private foodcatalog: Foodcatalog, private router: Router) {}
+  public succeeded = true;
+
+  constructor(private foodcatalog: Foodcatalog, private router: Router, private loadingController: LoadingController, private toastController: ToastController) {}
 
   async ngOnInit() {
+    const loading = await this.loadingController.create({
+      message: "Loading catalogue..."
+    });
+    await loading.present();
     try {
       const res = await this.foodcatalog.getTopLevelCatalog();
       this.sample = res; //no need to .result
       console.log(res);
+      this.succeeded = true;
     } catch (error) {
+      this.succeeded = false;
       console.log("req error", error);
+    } finally {
+      await loading.dismiss();
+    }
+    if (!this.succeeded) {
+      const toast = await this.toastController.create({
+        message: "Sorry, there is an error getting info.",
+        duration: 3000,
+        position: 'bottom'
+      });
+      await toast.present();
     }
   }
 
