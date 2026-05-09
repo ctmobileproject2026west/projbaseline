@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start" *ngFor="let cat of sample">
         <ion-button [fill]="selectedCat == cat.id ? 'solid' : 'outline'" (click)="selectCat(cat)">{{ cat.name }}</ion-button>
