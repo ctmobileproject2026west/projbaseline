@@ -32,4 +32,8 @@
   <div id="container">
     <p>{{ sample | json }}</p>
   </div>
+  <div *ngIf="!succeeded">
+    <ion-icon name="refresh-outline"></ion-icon>
+    <p>Retry</p>
+  </div>
 </ion-content>
