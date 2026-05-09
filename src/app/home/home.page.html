@@ -15,7 +15,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <div *ngFor="let subcat of filterCat(selectedCat).subcategories">
+  <div *ngFor="let subcat of filterCat(selectedCat)?.subcategories">
     <ion-item-group>
         <ion-item-divider>
           <ion-label>{{ subcat.name }}</ion-label>

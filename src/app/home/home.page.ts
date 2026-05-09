@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-  public sample: any = {};
-  public selectedCat = "1";
+  public sample: any = []; //top level type matters
+  public selectedCat = "3";
 
   constructor(private foodcatalog: Foodcatalog, private router: Router) {}
 
@@ -30,7 +30,7 @@ export class HomePage implements OnInit {
   }
 
   public goToFoodDetails(fooditem: any) {
-    this.router.navigate(['/fooddetail', { FoodItem: JSON.stringify(fooditem) }]);
+    this.router.navigate(['fooddetail', { FoodItem: JSON.stringify(fooditem) }]);
   }
 
   //Utility

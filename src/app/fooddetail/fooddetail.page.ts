@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FooddetailPage implements OnInit {
   public getDetail: any;
-  public fooditemDetails: any;
+  public fooditemDetails: any = {};
 
   constructor(private route: ActivatedRoute) { }
 
